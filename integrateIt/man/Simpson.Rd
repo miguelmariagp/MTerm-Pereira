@@ -9,15 +9,16 @@
 \alias{show,Simpson-method}
 \title{A Simpson object}
 \description{
-Objects of class \code{Candidate} are created by \code{addCandidate} functions
+Objects of class \code{Simpson}
 }
 \details{
-An object of the class `Candidate' has the following slots:
+An object of the class `Simpson' has the following slots:
 \itemize{
-\item \code{name} Name of the candidate
-\item \code{delegatesWon} Number of delegates won by the candidate so far
-\item \code{party} Candidate party
-\item \code{delegatesNeeded} Number of delegates needed 
+\item \code{X} Vector X
+\item \code{Y} Vector f(X)
+\item \code{a} initial point to integrate
+\item \code{b} final point to integrate 
+\item \code{Int} The estimated integral using Simpson's rule 
 }
 }
 \author{

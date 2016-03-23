@@ -9,14 +9,22 @@ tolTest(fun, a, b, tol = 1e-05, Rule = "Trap", start = 4,
   correct = integrate(fun, a, b))
 }
 \arguments{
-\item{name}{A string with the name of the presidential candidate.}
+\item{fun}{A that relates x with y.}
 
-\item{delegatesWon}{A numeric object with the number of delegates already won by the candidate.}
+\item{a}{The starting point}
 
-\item{party}{A string with the candidate's party. It accepts either 'Dem' or 'Rep' for the Democratic and Republican parties, respectively.}
+\item{b}{The ending point}
+
+\item{tol}{A value for the difference between the approximation and the correct integral accepted.}
+
+\item{Rule}{The approximation rule.}
+
+\item{start}{Initial n}
+
+\item{correct}{correct integral}
 }
 \value{
-An object of class `Candidate' that contains
+A list with the inputs and outputs of the tolerance test.
 \itemize{
 \item \code{name} Name of the candidate
 \item \code{delegatesWon} Number of delegates won by the candidate so far
@@ -25,11 +33,12 @@ An object of class `Candidate' that contains
  }
 }
 \description{
-This function calculates the integral of a function fun between points a and b
-using either the Trapezoid or the Simpson method.
+This function calculates the numbers of sub-divisions (n) necessary to approximate an integral to
+correct value.
 }
 \details{
-The function accepts three arguments: the delegate's name, the number of delegates won and her party.
+The function accepts seven arguments: a function, the starting (a) and ending (b) points of the integral,
+the approximation rule, the initial n, and the correct integral.
 }
 \examples{
 
