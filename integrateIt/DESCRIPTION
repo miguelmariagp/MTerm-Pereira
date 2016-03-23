@@ -1,10 +1,13 @@
 Package: integrateIt
-Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Title: Compute integrals using trapezoidal or Simpson's approximation
+Version: 1.0
+Author: Miguel Pereira
+Maintainer: Miguel Pereira <m.pereira@wustl.edu>
+Description: Find integrals using approximations and computes the number of segments required to get accurate approximations.
 Depends:
     R (>= 3.2.2)
-License: What license is it under?
+License: MMP
 LazyData: true
+Suggests:
+    devtools
 RoxygenNote: 5.0.1
