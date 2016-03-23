@@ -4,6 +4,7 @@
 \name{Simpson-class}
 \alias{Simpson-class}
 \alias{initialize,Simpson-method}
+\alias{plot,Simpson-method}
 \alias{print,Simpson-method}
 \alias{show,Simpson-method}
 \title{A Simpson object}
