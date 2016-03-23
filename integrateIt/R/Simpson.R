@@ -77,5 +77,5 @@ setMethod(f="show",
 #' @export
 # Print method (print is a S3 function)
 print.Simpson <- function(simpson){
-  paste("Using Simpson's rule, the integral of this function from",simpson@a,"to",simpson@b,"is",round(simpson@Int,3), sep=" ")
+  return(round(simpson@Int,4))
 }

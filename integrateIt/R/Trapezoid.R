@@ -67,7 +67,7 @@ setMethod(f="show",
 #' @export
 # Print method (print is a S3 function)
 print.Trapezoid <- function(trapezoid){
-  paste("Using the trapezoidal rule, the integral of this function from",trapezoid@a,"to",trapezoid@b,"is",round(trapezoid@Int,3), sep=" ")
+  return(round(trapezoid@Int,4))
 }
 
 
