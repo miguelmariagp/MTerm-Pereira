@@ -37,14 +37,21 @@ setClass(Class="Simpson",
 #' @export
 setMethod("initialize", "Simpson", 
           function(.Object, X, Y, a, b){
-            .Object@X <- X
-            .Object@Y <- Y
+
             .Object@a <- a
             .Object@b <- b
-            
-            sorted<-sort.int(X, index.return=T)$ix
+
+            #Subsetting the vectors between a and b
+            #This allows for the vectors to be larger than the area for which we want to compute the integral
+            subvec<-which(X>=a&X<=b)
+            #And sorting them by x, in case the vectors are not sorted
+            sorted<-sort.int(X[subvec], index.return=T)$ix
             x<-X[sorted]
             y<-Y[sorted]
+            
+            .Object@X <- x
+            .Object@Y <- y            
+                        
             n<-length(x[x>=a&x<=b])
             h<-(b-a)/n
             if (n==2){
@@ -70,6 +77,17 @@ setMethod(f="show",
           # Class the method is used for
           signature="Simpson",
           definition=function(object){
+            
+            #Subsetting the vectors between a and b in order to show only those used to estimate the integral
+            subvec<-which(object@X>=object@a & object@X<=object@b)
+            #And sorting them by x, in case the vectors are not sorted
+            sorted<-sort.int(object@X[subvec], index.return=T)$ix
+            x<-object@X[sorted]
+            y<-object@Y[sorted]
+            
+            object@X <- x
+            object@Y <- y
+            
             showsimp <- list(Values=cbind(X=object@X, Y=object@Y), Integral=object@Int)
             print(showsimp)
           }   

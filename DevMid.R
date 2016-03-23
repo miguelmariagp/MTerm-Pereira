@@ -20,7 +20,7 @@ y2<-cos(x)
 
 
 #Creating a Trapezoid object from scratch
-tr<-new("Trapezoid",x1,y1,0,1)
+tr<-new("Trapezoid",x1,y1,0,2)
 #Using the integratIt method
 tr<-integrateIt(X=x1,Y=y1,a=0,b=1,Rule="Trap")
 #Using the show method
@@ -34,8 +34,9 @@ tr2<-new("Trapezoid",x2,y2,0,4)
 plot(tr2)
 
 
-#Creating a Simspon object from scratch
-sp<-new("Simpson",x1,y1,0,1)
+
+#Creating a Simpson object from scratch
+sp<-new("Simpson",x1,y1,0,2)
 #Using the integratIt method
 sp<-integrateIt(X=x1,Y=y1,a=0,b=1,Rule="Simp")
 #Using the show method
