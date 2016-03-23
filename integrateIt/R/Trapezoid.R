@@ -42,6 +42,7 @@ setMethod("initialize", "Trapezoid",
             .Object@b <- b
             
             #Subsetting the vectors between a and b
+            #This allows for the vectors to be larger than the area for which we want to compute the integral
             subvec<-which(X>=a&X<=b)
             #And sorting them
             sorted<-sort.int(X[subvec], index.return=T)$ix
