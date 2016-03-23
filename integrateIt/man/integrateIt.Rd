@@ -8,19 +8,22 @@
 integrateIt(X, Y, a, b, Rule)
 }
 \arguments{
-\item{name}{A string with the name of the presidential candidate.}
+\item{X}{Vector with X values.}
 
-\item{delegatesWon}{A numeric object with the number of delegates already won by the candidate.}
+\item{Y}{Vector with f(X) values.}
 
-\item{party}{A string with the candidate's party. It accepts either 'Dem' or 'Rep' for the Democratic and Republican parties, respectively.}
+\item{a}{The starting point}
+
+\item{b}{The ending point}
+
+\item{Rule}{Integration rule}
 }
 \value{
-An object of class `Candidate' that contains
+The output of the function 'integrateIt' is either a Trapezoid or Simpson object with the following elements
 \itemize{
-\item \code{name} Name of the candidate
-\item \code{delegatesWon} Number of delegates won by the candidate so far
-\item \code{party} Candidate party
-\item \code{delegatesNeeded} Number of delegates needed to win the nomination in her party
+\item \code{X} Vector X
+\item \code{Y} Vector Y
+\item \code{Int} The estimated integral
  }
 }
 \description{
@@ -28,12 +31,7 @@ This function calculates the integral of a function fun between points a and b
 using either the Trapezoid or the Simpson method.
 }
 \details{
-The function accepts three arguments: the delegate's name, the number of delegates won and her party.
-}
-\examples{
-
-createCandidate("Sanders", 140, "Dem") 
-
+The function accepts four arguments: vector X, vector Y, initial point a, final point b, and the rule used to compute the integral.
 }
 \author{
 Miguel Pereira \email{m.pereira@wustl.edu}

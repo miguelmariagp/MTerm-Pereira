@@ -3,23 +3,21 @@
 #' This function calculates the integral of a function fun between points a and b
 #' using either the Trapezoid or the Simpson method.
 #' 
-#' The function accepts three arguments: the delegate's name, the number of delegates won and her party.
+#' The function accepts four arguments: vector X, vector Y, initial point a, final point b, and the rule used to compute the integral.
 #'
-#' @param name A string with the name of the presidential candidate. 
-#' @param delegatesWon A numeric object with the number of delegates already won by the candidate.
-#' @param party A string with the candidate's party. It accepts either 'Dem' or 'Rep' for the Democratic and Republican parties, respectively.
+#' @param X Vector with X values. 
+#' @param Y Vector with f(X) values.
+#' @param a The starting point
+#' @param b The ending point
+#' @param Rule Integration rule
 #'
-#' @return An object of class `Candidate' that contains
+#' @return The output of the function 'integrateIt' is either a Trapezoid or Simpson object with the following elements
 #' \itemize{
-#' \item \code{name} Name of the candidate
-#' \item \code{delegatesWon} Number of delegates won by the candidate so far
-#' \item \code{party} Candidate party
-#' \item \code{delegatesNeeded} Number of delegates needed to win the nomination in her party
+#' \item \code{X} Vector X
+#' \item \code{Y} Vector Y
+#' \item \code{Int} The estimated integral
 #'  }
 #' @author Miguel Pereira \email{m.pereira@@wustl.edu}
-#' @examples
-#' 
-#' createCandidate("Sanders", 140, "Dem") 
 #' 
 #' @rdname integrateIt
 #' @aliases integrateIt,ANY-method
