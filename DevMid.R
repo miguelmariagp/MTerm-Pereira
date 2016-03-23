@@ -45,6 +45,7 @@ show(sp)
 print(sp)
 
 #Using the plot method for Trapezoid objects
+plot(sp)
 sp2<-new("Simpson",x2,y2,0,4)
 plot(sp2)
 
