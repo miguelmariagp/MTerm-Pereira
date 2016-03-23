@@ -1,15 +1,20 @@
 #' Calculates tolerance test
 #'
-#' This function calculates the integral of a function fun between points a and b
-#' using either the Trapezoid or the Simpson method.
+#' This function calculates the numbers of sub-divisions (n) necessary to approximate an integral to
+#' correct value.
 #' 
-#' The function accepts three arguments: the delegate's name, the number of delegates won and her party.
+#' The function accepts seven arguments: a function, the starting (a) and ending (b) points of the integral,
+#' the approximation rule, the initial n, and the correct integral.
 #'
-#' @param name A string with the name of the presidential candidate. 
-#' @param delegatesWon A numeric object with the number of delegates already won by the candidate.
-#' @param party A string with the candidate's party. It accepts either 'Dem' or 'Rep' for the Democratic and Republican parties, respectively.
+#' @param fun A that relates x with y.
+#' @param a The starting point
+#' @param b The ending point
+#' @param tol A value for the difference between the approximation and the correct integral accepted.
+#' @param Rule The approximation rule.
+#' @param start Initial n
+#' @param correct correct integral
 #'
-#' @return An object of class `Candidate' that contains
+#' @return A list with the inputs and outputs of the tolerance test.
 #' \itemize{
 #' \item \code{name} Name of the candidate
 #' \item \code{delegatesWon} Number of delegates won by the candidate so far
