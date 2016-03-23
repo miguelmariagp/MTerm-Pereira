@@ -12,18 +12,17 @@ load_all(current.code)
 document(current.code)
 
 #Example data
-x<-seq(0,2,by=.2)
-y=x^2
+x1<-seq(0,2,by=.2)
+y1<-x^2
 
+x2<-seq(0,5,by=.5)
+y2<-cos(x)
 
-x<-seq(0,5,by=.5)
-y=cos(x)
-plot(x,y)
 
 #Creating a Trapezoid object from scratch
-tr<-new("Trapezoid",x,y,0,1)
+tr<-new("Trapezoid",x1,y1,0,1)
 #Using the integratIt method
-tr<-integrateIt(X=x,Y=y,a=0,b=2,Rule="Trap")
+tr<-integrateIt(X=x1,Y=y1,a=0,b=1,Rule="Trap")
 #Using the show method
 show(tr)
 #Using the print method
@@ -31,58 +30,22 @@ print(tr)
 
 #Using the plot method for Trapezoid objects
 plot(tr)
-
+tr2<-new("Trapezoid",x2,y2,0,4)
+plot(tr2)
 
 
 #Creating a Simspon object from scratch
-sp<-new("Simpson",x,y,0,4)
+sp<-new("Simpson",x1,y1,0,1)
 #Using the integratIt method
-sp<-integrateIt(X=x,Y=y,a=0,b=2,Rule="Simp")
+sp<-integrateIt(X=x1,Y=y1,a=0,b=1,Rule="Simp")
 #Using the show method
 show(sp)
 #Using the print method
 print(sp)
 
-
-
-
 #Using the plot method for Trapezoid objects
-plot(sp)
-
-
-#PLOT METHOD FOR SIMPSON objects
-length(x)
-
-subvec<-which(x>=0 & x<=4)
-#And sorting them by x
-sorted<-sort.int(x[subvec], index.return=T)$ix
-x.vec<-x[sorted]
-y.vec<-y[sorted]
-
-n<-length(x[x>=0&x<=4])
-
-midpoint<-seq(2,n,2)
-
-
-plot(x,cos(x))
-X<-seq(x[2-1],x[2+1],length.out=20)
-plot(x=seq(0,2,length.out=10),y=seq(0,5,length.out=10),type="n")
-lines(X,px[,1])
-
-
-
-top<-function(x,y){
-  n<-length(x)
-  
-  v<-(x[1]+x[2])/2
-  X<-seq(min(x),max(x),by=.01)
-  px<-y[1]*(((X-v)*(X-x[n]))/((x[1]-v)*(x[1]-x[n])))+
-    y[v]*(((X-x[1])*(X-x[n]))/((v-x[1])*(v-x[n])))+
-    y[n]*(((X-x[1])*(X-v))/((x[n]-x[1])*(x[n]-v)))
-  plot(x,y)
-  lines(px)
-  segments(x.vec[c(i-1,i+1)],rep(0,n),x.vec[c(i-1,i+1)],y.vec[c(i-1,i+1)],col="gray")
-}
+sp2<-new("Simpson",x2,y2,0,4)
+plot(sp2)
 
 
 
