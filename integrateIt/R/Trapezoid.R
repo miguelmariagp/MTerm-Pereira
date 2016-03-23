@@ -70,3 +70,20 @@ print.Trapezoid <- function(trapezoid){
   paste("Using the trapezoidal rule, the integral of this function from",trapezoid@a,"to",trapezoid@b,"is",round(trapezoid@Int,3), sep=" ")
 }
 
+
+#' @export
+setMethod(f="plot",
+          # Class the method is used for
+          signature="Trapezoid",
+          # The method itself
+          definition=function(x=NULL, y=x, ...){
+            sorted<-sort.int(x@X, index.return=TRUE)$ix
+            x.vec<-x@X[sorted]
+            y.vec<-x@Y[sorted]
+            plot(x.vec,y.vec,pch=16,main="Graphical display of trapezoidal rule",
+                 ylim=c(0,max(y.vec)),ylab="f(X)", xlab="X")
+            n<-length(x.vec)
+            segments(x.vec[1:n-1],y.vec[1:n-1],x.vec[2:n],y.vec[2:n],col="red")
+            segments(x.vec,rep(0,n),x.vec,y.vec,col="gray")
+          }   
+)
