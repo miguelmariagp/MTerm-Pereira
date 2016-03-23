@@ -109,7 +109,10 @@ setMethod(f="plot",
             
             #I know, it's a for loop. But time was running.
             for (i in midpoint){
+              #This is the vector of x's to used to build each parabola
               X<-seq(x.vec[i-1],x.vec[i+1],length.out=20)
+              
+              #This is p(X)
               px<-y.vec[i-1]*((X-x.vec[i])*(X-x.vec[i+1]))/((x.vec[i-1]-x.vec[i])*(x.vec[i-1]-x.vec[i+1]))+
                 y.vec[i]*((X-x.vec[i-1])*(X-x.vec[i+1]))/((x.vec[i]-x.vec[i-1])*(x.vec[i]-x.vec[i+1])) +
                 y.vec[i+1]*((X-x.vec[i-1])*(X-x.vec[i]))/((x.vec[i+1]-x.vec[i-1])*(x.vec[i+1]-x.vec[i]))
@@ -118,6 +121,7 @@ setMethod(f="plot",
               
               #Here I add the vertical lines
               segments(x.vec[c(i-1,i+1)],rep(0,n),x.vec[c(i-1,i+1)],y.vec[c(i-1,i+1)],col="gray")
+              #And signalling the midpoints
               points(x.vec[i],y.vec[i],col="red",pch=16)
             }
             abline(a=0,b=0)

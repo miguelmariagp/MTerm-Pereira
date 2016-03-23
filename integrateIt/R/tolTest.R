@@ -38,11 +38,14 @@ setGeneric(name="tolTest",
 setMethod(f="tolTest",
           definition=function(fun,a,b,tol=1e-5,Rule="Trap", start=4,
                               correct=integrate(fun,a,b)){
+            #Code to compute the integrals based on a function and the specific rule adopted
+            #Since in this function the argument is the function and not the vectors, I cannot use the functions created before
             n <- start
             h <- (b-a)/n
             x <- seq(a,b,by=h)
             y <- fun(x)
             
+            #An internal function that computes integrals
             integral.calc <- function(n,h,y,Rule){
               if (Rule=="Trap"){
                 int.approx<-h * (y[1]/2 + sum(y[2:n]) + y[n+1]/2)
@@ -59,10 +62,13 @@ setMethod(f="tolTest",
               return(int.approx)
             }
 
+            #Here I estimate the integral for the n initially given and stores it in int.original
             int.approx<-integral.calc(n,h,y,Rule)
             int.original <-int.approx
-            int.diff <- tol+1 #This line ensures that the while loop works at once
+            #This line ensures that the while loop works at once
+            int.diff <- tol+1 
             
+            #Finding the right n
             while (int.diff>tol){
               int.approx.old <- int.approx
               n <- n*2

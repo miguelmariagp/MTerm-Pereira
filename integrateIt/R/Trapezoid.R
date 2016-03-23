@@ -108,7 +108,9 @@ setMethod(f="plot",
             plot(x.vec,y.vec,pch=16,main="Graphical display of trapezoidal rule",
                  ylim=c(min(y.vec),max(y.vec)),ylab="f(X)", xlab="X")
             n<-length(x.vec)
+            #Creating the oblique segments
             segments(x.vec[1:n-1],y.vec[1:n-1],x.vec[2:n],y.vec[2:n],col="red")
+            #Creating the vertical segments
             segments(x.vec,rep(0,n),x.vec,y.vec,col="gray")
             abline(a=0,b=0)
             
