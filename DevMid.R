@@ -12,13 +12,15 @@ load_all(current.code)
 document(current.code)
 
 #Example data
-x1<-seq(0,2,by=.2)
-y1<-x^2
+x1<-seq(0,5,by=.5)
+y1<-x1^2
 
 x2<-seq(0,5,by=.5)
-y2<-cos(x)
+y2<-cos(x2)
 
-
+##########
+#Trapezoid
+##########
 #Creating a Trapezoid object from scratch
 tr<-new("Trapezoid",x1,y1,0,2)
 #Using the integratIt method
@@ -34,11 +36,13 @@ tr2<-new("Trapezoid",x2,y2,0,4)
 plot(tr2)
 
 
-
+####
+#Simpson
+####
 #Creating a Simpson object from scratch
 sp<-new("Simpson",x1,y1,0,2)
 #Using the integratIt method
-sp<-integrateIt(X=x1,Y=y1,a=0,b=1,Rule="Simp")
+sp<-integrateIt(X=x1,Y=y1,a=0,b=2,Rule="Simp")
 #Using the show method
 show(sp)
 #Using the print method
@@ -50,9 +54,7 @@ sp2<-new("Simpson",x2,y2,0,4)
 plot(sp2)
 
 
-
 #Testing method tolTest
 f<-function(x) x^2
-tolTest(f,0,2)
+tolTest(f,0,2,Rule="Trap")
 tolTest(f,0,2,Rule="Simp")
-
